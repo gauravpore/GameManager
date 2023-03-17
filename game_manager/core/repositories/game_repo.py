@@ -75,7 +75,7 @@ def update_game(game_id: str, game_data: dict):
 
 def delete_game(name: str = None, game_id: str = None):
     """
-    Deletes the game with matching game_id.
+    Deletes the game object with matching game_id.
     Params:
         - name -> name of game
         - game_id -> id of game
