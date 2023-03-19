@@ -1,5 +1,5 @@
 # 🔹Game Manager CRUD APIs 🎮
-## 🌐 Deployed Project Link --> [https://gforce.pythonanywhere.com/swagger/](https://gforce.pythonanywhere.com/swagger/)
+### 🌐 Deployed Project Link --> [https://gforce.pythonanywhere.com/swagger/](https://gforce.pythonanywhere.com/swagger/)
 
 ## 🔸Overview:
 Game Manager APIs are CRUD apis that'll allow us to manage CRUD operation on Game object in database.
