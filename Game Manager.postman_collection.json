@@ -1,0 +1,933 @@
+{
+	"info": {
+		"_postman_id": "d6a3fa09-18ef-4da6-80e1-bdf9ffc4c57a",
+		"name": "Game Manager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17177741"
+	},
+	"item": [
+		{
+			"name": "Create Single Game",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Fifa 23\",\r\n    \"url\":\"https://www.ea.com/en-gb/games/fifa/fifa-23\",\r\n    \"author\":\"Electronic Arts\",\r\n    \"published_date\":\"2022-09-27\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}api/create-game",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"create-game"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create Game - Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Valorant\",\r\n    \"url\":\"https://playvalorant.com/en-gb/\",\r\n    \"author\":\"Riot Games\",\r\n    \"published_date\":\"2020-06-02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/create-game",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"create-game"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 17 Mar 2023 16:16:11 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "OPTIONS, POST"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "58"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"response\": \"Game object created successfully\"\n}"
+				},
+				{
+					"name": "Create Game - Failure",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Valorant\",\r\n    \"url\":\"https://playvalorant.com/en-gb/\",\r\n    \"author\":\"Riot Games\",\r\n    \"published_date\":\"2020-06-02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}api/create-game",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"create-game"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 17 Mar 2023 16:18:11 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "OPTIONS, POST"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "61"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 400,\n    \"message\": \"Game with given name already exists!\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Read Single Game",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}api/read-game?name=Valorant",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"read-game"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Valorant"
+						},
+						{
+							"key": "game_id",
+							"value": "6N4GX",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Read Game (name) - Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}api/read-game?name=Call of Duty",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"read-game"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Call of Duty"
+								},
+								{
+									"key": "game_id",
+									"value": "LJLPQ",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 17 Mar 2023 16:35:33 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "159"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"response\": {\n        \"game_id\": \"LJLPQ\",\n        \"name\": \"Call of Duty\",\n        \"url\": \"https://www.callofduty.com/mobile\",\n        \"author\": \"Activision\",\n        \"published_date\": \"2023-03-17\"\n    }\n}"
+				},
+				{
+					"name": "Read Game (game_id) - Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}api/read-game?game_id=LJLPQ",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"read-game"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Call of Duty",
+									"disabled": true
+								},
+								{
+									"key": "game_id",
+									"value": "LJLPQ"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 17 Mar 2023 16:35:58 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "159"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"response\": {\n        \"game_id\": \"LJLPQ\",\n        \"name\": \"Call of Duty\",\n        \"url\": \"https://www.callofduty.com/mobile\",\n        \"author\": \"Activision\",\n        \"published_date\": \"2023-03-17\"\n    }\n}"
+				},
+				{
+					"name": "Read Single Game - Failure",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}api/read-game",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"read-game"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Call of Duty",
+									"disabled": true
+								},
+								{
+									"key": "game_id",
+									"value": "LJLPQ",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 17 Mar 2023 16:36:42 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "59"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 400,\n    \"message\": \"Either game_id or name is required\"\n}"
+				},
+				{
+					"name": "Read Game - Not found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}api/read-game?name=all of Duty",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"read-game"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "all of Duty"
+								},
+								{
+									"key": "game_id",
+									"value": "LJLPQ",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 17 Mar 2023 16:36:57 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "58"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 400,\n    \"message\": \"Game not found with provided name\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get All Games",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}api/get-all-games",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"get-all-games"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get All Games",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}api/get-all-games",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"get-all-games"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 17 Mar 2023 18:46:01 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "989"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"response\": [\n        {\n            \"game_id\": \"6N4GX\",\n            \"name\": \"Valorant\",\n            \"url\": \"https://playvalorant.com/en-gb/\",\n            \"author\": \"Riot Games\",\n            \"published_date\": \"2020-06-02\"\n        },\n        {\n            \"game_id\": \"B1M7M\",\n            \"name\": \"Call of Duty: Modern Warfare\",\n            \"url\": \"https://www.callofduty.com/\",\n            \"author\": \"Activision\",\n            \"published_date\": \"2023-03-17\"\n        },\n        {\n            \"game_id\": \"T537C\",\n            \"name\": \"Battlefield V\",\n            \"url\": \"https://www.ea.com/en-gb/games/battlefield/battlefield-5\",\n            \"author\": \"Electronic Arts\",\n            \"published_date\": \"2018-11-09\"\n        },\n        {\n            \"game_id\": \"V6Z7A\",\n            \"name\": \"Grand Theft Auto: V\",\n            \"url\": \"https://www.rockstargames.com/gta-v\",\n            \"author\": \"Rockstar Games\",\n            \"published_date\": \"2013-09-13\"\n        },\n        {\n            \"game_id\": \"1YTD5\",\n            \"name\": \"Ghost Recon: Wildlands\",\n            \"url\": \"https://store.steampowered.com/app/460930/Tom_Clancys_Ghost_Recon_Wildlands/\",\n            \"author\": \"Ubisoft\",\n            \"published_date\": \"2017-03-07\"\n        },\n        {\n            \"game_id\": \"5O53G\",\n            \"name\": \"Counter Strike: Global Offensive\",\n            \"url\": \"https://store.steampowered.com/app/730/CounterStrike_Global_Offensive/\",\n            \"author\": \"Valve\",\n            \"published_date\": \"2012-08-21\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "Get All Games",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}api/get-all-games",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"get-all-games"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 19 Mar 2023 15:21:04 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1283"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"response\": [\n        {\n            \"game_id\": \"6N4GX\",\n            \"name\": \"Valorant\",\n            \"url\": \"https://playvalorant.com/en-gb/\",\n            \"author\": \"Riot Games\",\n            \"published_date\": \"2020-06-02\"\n        },\n        {\n            \"game_id\": \"B1M7M\",\n            \"name\": \"Call of Duty: Modern Warfare\",\n            \"url\": \"https://www.callofduty.com/\",\n            \"author\": \"Activision\",\n            \"published_date\": \"2023-03-17\"\n        },\n        {\n            \"game_id\": \"T537C\",\n            \"name\": \"Battlefield V\",\n            \"url\": \"https://www.ea.com/en-gb/games/battlefield/battlefield-5\",\n            \"author\": \"Electronic Arts\",\n            \"published_date\": \"2018-11-09\"\n        },\n        {\n            \"game_id\": \"V6Z7A\",\n            \"name\": \"Grand Theft Auto: V\",\n            \"url\": \"https://www.rockstargames.com/gta-v\",\n            \"author\": \"Rockstar Games\",\n            \"published_date\": \"2013-09-13\"\n        },\n        {\n            \"game_id\": \"1YTD5\",\n            \"name\": \"Ghost Recon: Wildlands\",\n            \"url\": \"https://store.steampowered.com/app/460930/Tom_Clancys_Ghost_Recon_Wildlands/\",\n            \"author\": \"Ubisoft\",\n            \"published_date\": \"2017-03-07\"\n        },\n        {\n            \"game_id\": \"5O53G\",\n            \"name\": \"Counter Strike: Global Offensive\",\n            \"url\": \"https://store.steampowered.com/app/730/CounterStrike_Global_Offensive/\",\n            \"author\": \"Valve\",\n            \"published_date\": \"2012-08-21\"\n        },\n        {\n            \"game_id\": \"M5Z17\",\n            \"name\": \"Fifa 23\",\n            \"url\": \"https://www.ea.com/en-gb/games/fifa/fifa-23\",\n            \"author\": \"Electronic Arts\",\n            \"published_date\": \"2022-09-27\"\n        },\n        {\n            \"game_id\": \"SUT3I\",\n            \"name\": \"Farcry 4\",\n            \"url\": \"https://store.steampowered.com/app/298110/Far_Cry_4/\",\n            \"author\": \"Ubisoft\",\n            \"published_date\": \"2014-11-18\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Game data",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"game_id\":\"SUT3I\",\r\n    \"name\":\"Farcry 3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}api/update-game",
+					"host": [
+						"{{host}}api"
+					],
+					"path": [
+						"update-game"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update Game data",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"game_id\":\"LJLPQ\",\r\n    \"name\":\"Call of Duty: Modern Warfare\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}api/update-game",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"update-game"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 17 Mar 2023 16:57:18 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "OPTIONS, PUT"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "56"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"response\": \"Game data Updated Successfully\"\n}"
+				},
+				{
+					"name": "Update Game data",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"game_id\":\"LJLP\",\r\n    \"name\":\"Call of Duty: Modern Warfare 3\",\r\n    \"author\":\"activision\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}api/update-game",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"update-game"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 17 Mar 2023 18:24:34 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "PUT, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "61"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 400,\n    \"message\": \"Game not found with provided game_id\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Game",
+			"request": {
+				"method": "DELETE",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Delete Game",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}api/delete-game?game_id=LJLPQ",
+							"host": [
+								"{{host}}api"
+							],
+							"path": [
+								"delete-game"
+							],
+							"query": [
+								{
+									"key": "game_id",
+									"value": "LJLPQ"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 17 Mar 2023 18:29:37 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.11.1"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "DELETE, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "61"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"response\": \"Requested Game deleted successfully\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "https://gforce.pythonanywhere.com/",
+			"type": "string"
+		}
+	]
+}
