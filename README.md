@@ -26,9 +26,9 @@ Game Manager APIs are CRUD apis that'll allow us to manage CRUD operation on Gam
 
 ### 🔸**API overview:**
 ```
-1. ```/api/create-game``` -> Creates a new game object in database using django ORM with the provided params (name, url, author, published_date). 
-2. ```/api/read-game``` -> Retrieves single specific game data based on `game_id` or `name` of the game.
-3. ```/api/get-all-games``` -> Retrieves data of all games stored in database.
-4. ```/api/update-game``` -> Updates Game with all the provided request data.
-5.  ```/api/delete-game``` -> Deletes entire Game object matching with given `game_id`.
+1. /api/create-game -> Creates a new game object in database using django ORM with the provided params (name, url, author, published_date). 
+2. /api/read-game -> Retrieves single specific game data based on `game_id` or `name` of the game.
+3. /api/get-all-games -> Retrieves data of all games stored in database.
+4. /api/update-game -> Updates Game with all the provided request data.
+5.  /api/delete-game -> Deletes entire Game object matching with given `game_id`.
 ```
