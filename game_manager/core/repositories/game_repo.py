@@ -77,8 +77,8 @@ def delete_game(name: str = None, game_id: str = None):
     """
     Deletes the game object with matching game_id.
     Params:
-        - name -> name of game
-        - game_id -> id of game
+        - name -> name of game (str)
+        - game_id -> id of game (str)
     Returns:
         success , response
     """
